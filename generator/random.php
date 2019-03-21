@@ -10,7 +10,9 @@ $applicants = [];
 $companies = [];
 
 for ($i = 1; $i < $companyCount; $i++) {
-	$companies[] = new Company(sprintf('C%0d', $i), $maxApplicantCount += random_int(5, 10));
+	$capacity = random_int(10, 20);
+	$maxApplicantCount += $capacity;
+	$companies[] = new Company(sprintf('C%0d', $i), $capacity);
 }
 
 $applicantCount = random_int($maxApplicantCount - 30, $maxApplicantCount);
