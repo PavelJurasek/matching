@@ -36,7 +36,7 @@ function debug(array $applicants, array $companies) {
 		}, $preferences)), $applicant->acceptedOffer() ? $applicant->acceptedOffer()->name() : 'none');
 	}
 
-	printf("-----\n");
+	printf("\n");
 
 	foreach ($companies as $company) {
 		printf("%s: %s | %s\n", $company->name(), implode(',', array_map(function (Applicant $applicant) {
@@ -46,7 +46,7 @@ function debug(array $applicants, array $companies) {
 		}, $company->acceptedOffers())));
 	}
 
-	printf("\n");
+	printf("-----\n");
 };
 
 debug($applicants, $companies);
