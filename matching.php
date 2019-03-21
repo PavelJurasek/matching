@@ -41,9 +41,9 @@ function debug(array $applicants, array $companies) {
 	foreach ($companies as $company) {
 		printf("%s: %s | %s\n", $company->name(), implode(',', array_map(function (Applicant $applicant) {
 			return $applicant->name();
-		}, $company->preferences())), implode(',', array_map(function (Applicant $applicant) {
+		}, $company->preferences())), $company->acceptedOffers() ? implode(',', array_map(function (Applicant $applicant) {
 			return $applicant->name();
-		}, $company->acceptedOffers())));
+		}, $company->acceptedOffers())) : 'none');
 	}
 
 	printf("-----\n");
