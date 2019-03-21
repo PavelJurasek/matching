@@ -13,11 +13,11 @@ function makeOffers(array $companies)
 		$company->offerEmployment();
 	}
 
-    foreach ($companies as $company) {
-        if (!$company->isDoneOfferingJob()) {
-            return true;
-        }
-    }
+	foreach ($companies as $company) {
+		if (!$company->isDoneOfferingJob()) {
+			return true;
+		}
+	}
 
 	return false;
 }

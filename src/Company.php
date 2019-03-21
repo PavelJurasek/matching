@@ -29,10 +29,10 @@ class Company
 		return $this->name;
 	}
 
-    public function maxCapacity(): int
-    {
-        return $this->maxCapacity;
-    }
+	public function maxCapacity(): int
+	{
+		return $this->maxCapacity;
+	}
 
 	/** @param Applicant[] $preferences */
 	public function setPreferences(array $preferences = []): void
@@ -47,21 +47,21 @@ class Company
 		return $this->preferences;
 	}
 
-    /** @return Applicant[] */
-    public function acceptedOffers(): array
-    {
-        $result = [];
+	/** @return Applicant[] */
+	public function acceptedOffers(): array
+	{
+		$result = [];
 
-        foreach ($this->responses as $i => $response) {
-            if ($response === true) {
-                $result[] = $this->preferences[$i];
-            }
-        }
+		foreach ($this->responses as $i => $response) {
+			if ($response === true) {
+				$result[] = $this->preferences[$i];
+			}
+		}
 
-        return $result;
-    }
+		return $result;
+	}
 
-    public function offerEmployment(): void
+	public function offerEmployment(): void
 	{
 		if ($this->confirmedOffers === $this->maxCapacity) {
 			return;
@@ -89,25 +89,25 @@ class Company
 		}));
 	}
 
-    public function receiveRejectedOffer(Applicant $applicant): void
+	public function receiveRejectedOffer(Applicant $applicant): void
 	{
 		$key = array_search($applicant, $this->preferences, true);
 		$this->responses[$key] = false;
 		$this->confirmedOffers--;
 	}
 
-    public function isDoneOfferingJob(): bool
-    {
-        // count how many applicants were not reached out yet
-        $notOffered = 0;
-        foreach ($this->responses as $response) {
-            if ($response === null) {
-                $notOffered++;
-            }
-        }
+	public function isDoneOfferingJob(): bool
+	{
+		// count how many applicants were not reached out yet
+		$notOffered = 0;
+		foreach ($this->responses as $response) {
+			if ($response === null) {
+				$notOffered++;
+			}
+		}
 
-        // done if all the capacity is filled or applicants were reached out
-        return $this->confirmedOffers === $this->maxCapacity || $notOffered === 0;
+		// done if all the capacity is filled or applicants were reached out
+		return $this->confirmedOffers === $this->maxCapacity || $notOffered === 0;
 	}
 
 }

@@ -2,18 +2,18 @@
 
 /** @var Applicant[] $applicants */
 $applicants = [
-    new Applicant('A'),
-    new Applicant('B'),
-    new Applicant('C'),
-    new Applicant('D'),
-    new Applicant('E'),
+	new Applicant('A'),
+	new Applicant('B'),
+	new Applicant('C'),
+	new Applicant('D'),
+	new Applicant('E'),
 ];
 
 /** @var Company[] $companies */
 $companies = [
-    new Company('C1', 2),
-    new Company('C2', 3),
-    new Company('C3', 2),
+	new Company('C1', 2),
+	new Company('C2', 3),
+	new Company('C3', 2),
 ];
 
 $applicants[0]->setPreferences([$companies[0], $companies[1]]);

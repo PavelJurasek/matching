@@ -34,12 +34,12 @@ class Applicant
 		return $this->preferences;
 	}
 
-    public function acceptedOffer(): ?Company
-    {
-        return $this->currentlyTheBestOffer;
-    }
+	public function acceptedOffer(): ?Company
+	{
+		return $this->currentlyTheBestOffer;
+	}
 
-    public function receiveOffer(Company $company): bool
+	public function receiveOffer(Company $company): bool
 	{
 		$currentOfferWeight = array_search($company, $this->preferences, true);
 
