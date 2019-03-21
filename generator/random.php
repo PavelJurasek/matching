@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-$companyCount = random_int(3, 10);
+$companyCount = random_int(4, 10);
 $maxApplicantCount = 0;
 
 /** @var Applicant[] $applicants */
@@ -41,7 +41,7 @@ $companyIndexes = range(0, $companyCount - 2);
 
 foreach ($applicants as $applicant) {
 	shuffle($companyIndexes);
-	$indexes = array_slice($companyIndexes, 0, random_int(2, 5));
+	$indexes = array_slice($companyIndexes, 0, random_int(3, $companyCount - 1));
 	$preferences = [];
 
 	foreach ($indexes as $index) {
